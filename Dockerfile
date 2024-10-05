@@ -3,7 +3,7 @@ WORKDIR /app
 COPY go.mod go.sum .
 RUN go mod download
 COPY . .
-RUN go build -o aria2
+RUN CGO_ENABLED=0 go build -trimpath -ldflags '-s -w -extldflags "-static"' -o aria2
 
 FROM alpine AS final
 RUN apk add --no-cache aria2
