@@ -1,6 +1,7 @@
 {
 	"name": "scripts",
 	"scripts": {
+		"start": "bun index.ts",
 		"upgrade": "bun update --latest",
 		"check": "biome check --write --unsafe .",
 		"lint": "tsc",
