@@ -7,7 +7,7 @@
 		"enable:multiarch": "docker run --privileged --rm tonistiigi/binfmt --install=all",
 		"multiarch:check": "docker buildx ls",
 		"prepare:push": "docker buildx create --name=container --driver=docker-container --bootstrap --use",
-		"push": "docker build --pull --push --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7,linux/ppc64le,linux/s390x --builder=container --tag=ghcr.io/chneau/aria2 .",
+		"push": "docker build --pull --push --no-cache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7,linux/ppc64le,linux/s390x --builder=container --tag=ghcr.io/chneau/aria2 .",
 		"multiarch:remove": "docker buildx rm container"
 	}
 }
