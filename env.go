@@ -15,7 +15,7 @@ var externalPort = getEnvOrDefault("EXTERNAL_PORT", port)
 var defaultSecret = randString(16)
 var secret = getEnvOrDefault("SECRET", defaultSecret)
 var ariaPort = getEnvOrDefault("ARIA_PORT", "6800")
-var ariaDir = getEnvOrDefault("ARIA_DIR", "/home/c/data")
+var ariaDir = getEnvOrDefault("ARIA_DIR", "/data")
 
 func getEnvOrDefault(key, defaultValue string) string {
 	value := os.Getenv(key)
