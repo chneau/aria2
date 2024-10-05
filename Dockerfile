@@ -1,11 +1,11 @@
-FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:alpine AS builder
+FROM --platform=$BUILDPLATFORM golang:alpine AS builder
 WORKDIR /app
 COPY go.mod go.sum .
 RUN go mod download
 COPY . .
 RUN CGO_ENABLED=0 go build -trimpath -ldflags '-s -w -extldflags "-static"' -o aria2
 
-FROM --platform=${BUILDPLATFORM:-linux/amd64} alpine AS final
+FROM alpine AS final
 RUN apk add --no-cache aria2
 USER 1000
 WORKDIR /data
