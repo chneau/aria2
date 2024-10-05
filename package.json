@@ -4,9 +4,10 @@
 		"upgrade": "bun run upgrade:go; bun run upgrade:aria2html",
 		"upgrade:go": "go get -u ./...; go mod tidy",
 		"upgrade:aria2html": "go run downloadAriaNg/main.go",
-		"enable:multiarch": "docker run --privileged --rm tonistiigi/binfmt --install all",
+		"enable:multiarch": "docker run --privileged --rm tonistiigi/binfmt --install=all",
 		"multiarch:check": "docker buildx ls",
 		"prepare:push": "docker buildx create --name=container --driver=docker-container --bootstrap --use",
-		"push": "docker buildx build --pull --push --platform=linux/amd64,linux/arm64 --builder=container --tag=ghcr.io/chneau/aria2 ."
+		"push": "docker buildx build --pull --push --platform=linux/amd64,linux/arm64 --builder=container --tag=ghcr.io/chneau/aria2 .",
+		"multiarch:remove": "docker buildx rm container"
 	}
 }
