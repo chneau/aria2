@@ -11,10 +11,8 @@ func init() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 }
 
-func runAria2cServerMode() {
-}
-
 func main() {
+	go runAria2cServerMode()
 	app := fiber.New()
 	app.Get("*", func(c fiber.Ctx) error {
 		c.Set("Content-Type", "text/html")
