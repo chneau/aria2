@@ -18,7 +18,7 @@ func main() {
 	go runAriaForever()
 	app := fiber.New()
 	app.Use(compress.New())
-	app.Use(basicauth.New(basicauth.Config{Users: map[string]string{"": secret, secret: secret, secret: ""}}))
+	app.Use(basicauth.New(basicauth.Config{Users: map[string]string{"": secret}}))
 	app.Get("*", func(c *fiber.Ctx) error {
 		c.Set("Content-Type", "text/html")
 		c.SendString(indexHtml)
