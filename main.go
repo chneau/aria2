@@ -12,7 +12,7 @@ func init() {
 }
 
 func main() {
-	go runAria2cServerMode()
+	go runAria2cForever()
 	app := fiber.New()
 	app.Get("*", func(c fiber.Ctx) error {
 		c.Set("Content-Type", "text/html")
