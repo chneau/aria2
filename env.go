@@ -13,7 +13,7 @@ var indexHtml string
 var port = getEnvOrDefault("PORT", "3000")
 var externalPort = getEnvOrDefault("EXTERNAL_PORT", port)
 var defaultRpcSecret = randString(16)
-var aria2cRpcSecret = getEnvOrDefault("ARIA2C_RPC_SECRET", defaultRpcSecret)
+var aria2cRpcSecret = getEnvOrDefault("SECRET", defaultRpcSecret)
 var aria2cPort = getEnvOrDefault("ARIA2C_PORT", "6800")
 var aria2cDir = getEnvOrDefault("ARIA2C_DIR", "/home/c/data")
 
