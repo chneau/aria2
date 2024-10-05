@@ -1,11 +1,13 @@
 FROM --platform=$BUILDPLATFORM golang:alpine AS builder
+ARG TARGETOS
+ARG TARGETARCH
 WORKDIR /app
 COPY go.mod go.sum .
 RUN go mod download
 COPY . .
-RUN CGO_ENABLED=0 go build -trimpath -ldflags '-s -w -extldflags "-static"' -o aria2
+RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} CGO_ENABLED=0 go build -trimpath -ldflags '-s -w -extldflags "-static"' -o aria2
 
-FROM --platform=$BUILDPLATFORM alpine AS final
+FROM alpine AS final
 RUN apk add --no-cache aria2
 USER 1000
 WORKDIR /data
