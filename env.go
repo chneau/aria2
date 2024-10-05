@@ -12,8 +12,7 @@ import (
 var indexHtml string
 var port = getEnvOrDefault("PORT", "3000")
 var externalPort = getEnvOrDefault("EXTERNAL_PORT", port)
-var defaultSecret = randString(16)
-var secret = getEnvOrDefault("SECRET", defaultSecret)
+var secret = getEnvOrDefault("SECRET", randString(16))
 var ariaPort = getEnvOrDefault("ARIA_PORT", "6800")
 var ariaDir = getEnvOrDefault("ARIA_DIR", "/data")
 
