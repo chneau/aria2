@@ -15,15 +15,15 @@ func init() {
 }
 
 func main() {
-	go runAria2cForever()
+	go runAriaForever()
 	app := fiber.New()
 	app.Use(compress.New())
-	app.Use(basicauth.New(basicauth.Config{Users: map[string]string{"": aria2cRpcSecret}}))
+	app.Use(basicauth.New(basicauth.Config{Users: map[string]string{"": secret}}))
 	app.Get("*", func(c *fiber.Ctx) error {
 		c.Set("Content-Type", "text/html")
 		c.SendString(indexHtml)
 		return nil
 	})
-	app.Post("/jsonrpc", proxy.Forward("http://localhost:"+aria2cPort+"/jsonrpc"))
+	app.Post("/jsonrpc", proxy.Forward("http://localhost:"+ariaPort+"/jsonrpc"))
 	log.Fatal(app.Listen(":" + port))
 }

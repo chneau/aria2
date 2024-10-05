@@ -29,9 +29,8 @@ const getDownloadUrl = (targetAsset: string) => {
 };
 const downloadAndExtract = async (targetAsset: string, downloadUrl: string) => {
 	console.log("Downloading and extracting...");
-	await $`mkdir -p ../public`;
 	await $`curl -L ${downloadUrl} -o ${targetAsset}`;
-	await $`unzip -p ${targetAsset} index.html > ../public/index.html`;
+	await $`unzip -p ${targetAsset} index.html > ../aria-ng.html`;
 	await $`rm ${targetAsset}`;
 };
 
