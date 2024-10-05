@@ -3,6 +3,6 @@
 		"start": "bun x nodemon --signal SIGTERM --ext go --exec 'go run . || false'",
 		"upgrade": "bun run upgrade:go; bun run upgrade:aria2html",
 		"upgrade:go": "go get -u ./...; go mod tidy",
-		"upgrade:aria2html": "bun run --cwd scripts start"
+		"upgrade:aria2html": "go run downloadAriaNg/main.go"
 	}
 }
