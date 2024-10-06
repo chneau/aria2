@@ -21,5 +21,5 @@ Then go to `AriaNg Settings` > `RPC (localhost:3000)` > `Aria2 RPC Secret Token`
 
 # behavior
 
-- `Basic auth` for the web interface default to whether `USERNAME` or `PASSWORD` are set
+- `Basic auth` for the web interface is on if whether `USERNAME` or `PASSWORD` are set
 - Setting the Aria2c RPC Secret Token in the web interface is set if there is `basic auth`
