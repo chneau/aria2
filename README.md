@@ -3,7 +3,7 @@
 ```bash
 # Start aria2
 docker run --rm --name aria2 --net=host ghcr.io/chneau/aria2
-
+# build for linux/amd64 linux/arm64 linux/386 linux/arm/v6 linux/arm/v7 linux/ppc64le linux/s390x
 ```
 
 Open `localhost:3000` with `username`: "" and `password`: "look on the console"  
