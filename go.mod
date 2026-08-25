@@ -3,7 +3,7 @@ module github.com/chneau/aria2
 go 1.23.2
 
 require (
-	github.com/gofiber/fiber/v2 v2.52.13
+	github.com/gofiber/fiber/v2 v2.52.14
 	github.com/samber/lo v1.47.0
 )
 
